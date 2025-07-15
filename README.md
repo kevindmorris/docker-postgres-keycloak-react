@@ -1,5 +1,7 @@
 # Docker + Postgres + Keycloak + React
 
+## 📐 Architecture
+
 ```mermaid
 graph LR
     client <--> react
@@ -17,16 +19,20 @@ graph LR
     end
 ```
 
+## 🧪 Getting started
 
-.env
-POSTGRES_DB=keycloak
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=password
+Build the docker stack:
 
-KC_BOOTSTRAP_ADMIN_USERNAME=admin
-KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+```
+docker compose up -d --build
+docker compose down
+```
 
-VITE_KEYCLOAK_URL=http://localhost:8080
-VITE_KEYCLOAK_REALM=template
-VITE_KEYCLOAK_CLIENT_ID=template
+Build the docker stack (development):
+
+```
+docker compose up -d postgres keycloak
+npm i
+npm run dev
+```
 
